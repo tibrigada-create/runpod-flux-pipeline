@@ -405,4 +405,9 @@ def build_ui() -> gr.Blocks:
 
 if __name__ == "__main__":
     port = int(os.getenv("CONTROLLER_PORT", "7860"))
-    build_ui().queue().launch(server_name="0.0.0.0", server_port=port)
+    DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    build_ui().queue().launch(
+        server_name="0.0.0.0",
+        server_port=port,
+        allowed_paths=[str(DOWNLOAD_DIR)],
+    )
