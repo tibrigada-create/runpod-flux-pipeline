@@ -1,0 +1,123 @@
+{
+  "10": {
+    "class_type": "UnetLoaderGGUF",
+    "inputs": {
+      "unet_name": "fluxunchained-dev-Q6_K.gguf"
+    }
+  },
+  "11": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp8_e4m3fn.safetensors",
+      "type": "flux"
+    }
+  },
+  "12": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    }
+  },
+  "30": {
+    "class_type": "ModelSamplingFlux",
+    "inputs": {
+      "model": [
+        "10",
+        0
+      ],
+      "width": 1024,
+      "height": 1024,
+      "max_shift": 1.15,
+      "base_shift": 0.5
+    }
+  },
+  "40": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "a cinematic high fidelity portrait",
+      "clip": [
+        "11",
+        0
+      ]
+    }
+  },
+  "41": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "40",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "42": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "11",
+        0
+      ]
+    }
+  },
+  "50": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    }
+  },
+  "60": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 1,
+      "steps": 28,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0,
+      "model": [
+        "30",
+        0
+      ],
+      "positive": [
+        "41",
+        0
+      ],
+      "negative": [
+        "42",
+        0
+      ],
+      "latent_image": [
+        "50",
+        0
+      ]
+    }
+  },
+  "70": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "60",
+        0
+      ],
+      "vae": [
+        "12",
+        0
+      ]
+    }
+  },
+  "80": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "flux_unchained",
+      "images": [
+        "70",
+        0
+      ]
+    }
+  }
+}
