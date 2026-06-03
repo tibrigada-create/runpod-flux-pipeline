@@ -12,12 +12,13 @@ MODEL_FILE="${MODEL_FILE:-fluxunchained-dev-Q6_K.gguf}"
 MODEL_URL="${MODEL_URL:-https://huggingface.co/${MODEL_REPO}/resolve/main/${MODEL_FILE}?download=true}"
 CLIP_L_URL="${CLIP_L_URL:-https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true}"
 T5_URL="${T5_URL:-https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true}"
-VAE_URL="${VAE_URL:-https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors?download=true}"
+VAE_URL="${VAE_URL:-https://huggingface.co/MaxedOut/ComfyUI-Starter-Packs/resolve/main/Flux1/vae/ae.safetensors?download=true}"
 UPSCALER_URL="${UPSCALER_URL:-https://huggingface.co/Kim2091/UltraSharp/resolve/main/4x-UltraSharp.pth?download=true}"
 
 INSTALL_INSTANTID="${INSTALL_INSTANTID:-1}"
 INSTALL_PULID="${INSTALL_PULID:-1}"
 INSTALL_APERSONMASK="${INSTALL_APERSONMASK:-1}"
+INSTALL_IMPACT_PACK="${INSTALL_IMPACT_PACK:-1}"
 DOWNLOAD_UPSCALER="${DOWNLOAD_UPSCALER:-1}"
 UPDATE_REPOS="${UPDATE_REPOS:-0}"
 INSTALL_TORCH_IF_MISSING="${INSTALL_TORCH_IF_MISSING:-1}"
@@ -133,6 +134,10 @@ ensure_dir "$CUSTOM_NODES"
 clone_or_update "https://github.com/city96/ComfyUI-GGUF.git" "${CUSTOM_NODES}/ComfyUI-GGUF"
 clone_or_update "https://github.com/ltdrdata/ComfyUI-Manager.git" "${CUSTOM_NODES}/ComfyUI-Manager"
 
+if [[ "${INSTALL_IMPACT_PACK}" == "1" ]]; then
+  clone_or_update "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git" "${CUSTOM_NODES}/ComfyUI-Impact-Pack"
+fi
+
 if [[ "${INSTALL_PULID}" == "1" ]]; then
   clone_or_update "https://github.com/lldacing/ComfyUI_PuLID_Flux_ll.git" "${CUSTOM_NODES}/ComfyUI_PuLID_Flux_ll"
 fi
@@ -147,6 +152,7 @@ fi
 
 install_requirements_file "${CUSTOM_NODES}/ComfyUI-GGUF/requirements.txt" "ComfyUI-GGUF"
 install_requirements_file "${CUSTOM_NODES}/ComfyUI-Manager/requirements.txt" "ComfyUI-Manager"
+install_requirements_file "${CUSTOM_NODES}/ComfyUI-Impact-Pack/requirements.txt" "ComfyUI-Impact-Pack"
 install_requirements_file "${CUSTOM_NODES}/ComfyUI_PuLID_Flux_ll/requirements.txt" "PuLID Flux"
 install_requirements_file "${CUSTOM_NODES}/a-person-mask-generator/requirements.txt" "a-person-mask-generator"
 install_requirements_file "${CUSTOM_NODES}/comfyui-instantId-faceswap/requirements.txt" "InstantID faceswap"
