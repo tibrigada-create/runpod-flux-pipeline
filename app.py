@@ -343,12 +343,13 @@ def build_ui() -> gr.Blocks:
                     height = gr.Slider(512, 1536, value=1024, step=64, label="Height")
                 with gr.Row():
                     steps = gr.Slider(20, 40, value=28, step=1, label="Steps")
-                    guidance = gr.Slider(2.0, 3.2, value=2.6, step=0.05, label="Flux guidance")
+                    guidance = gr.Slider(1.0, 4.0, value=2.6, step=0.05, label="Flux guidance")
                 with gr.Row():
                     sampler = gr.Dropdown(["euler"], value="euler", label="Sampler")
                     scheduler = gr.Dropdown(["beta", "sgm_uniform", "simple"], value="beta", label="Scheduler")
                 with gr.Row():
                     seed = gr.Number(value=-1, precision=0, label="Seed")
+                    cfg = gr.Number(value=1.0, precision=1, label="CFG fixed", interactive=False)
                     randomize_seed = gr.Checkbox(value=True, label="Randomize seed")
                 filename_prefix = gr.Textbox(value=DEFAULT_PREFIX, label="Filename prefix")
 
