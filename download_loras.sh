@@ -19,9 +19,11 @@ resolve_url() {
   if [[ "$url" == *"civitai.com/models/"* && "$url" != *"/api/download/models/"* ]]; then
     python - "$filename" "$url" <<'PY'
 import json
+import os
 import re
 import sys
 import urllib.request
+import urllib.error
 
 filename = sys.argv[1]
 url = sys.argv[2]
@@ -32,9 +34,21 @@ if not match:
 
 api_url = f"https://civitai.com/api/v1/models/{match.group(1)}"
 headers = {}
+token = os.environ.get("CIVITAI_TOKEN")
+if token:
+    headers["Authorization"] = f"Bearer {token}"
 req = urllib.request.Request(api_url, headers=headers)
-with urllib.request.urlopen(req, timeout=60) as response:
-    model = json.load(response)
+try:
+    with urllib.request.urlopen(req, timeout=60) as response:
+        model = json.load(response)
+except urllib.error.HTTPError as exc:
+    print(f"ERROR: Civitai API returned HTTP {exc.code} for {url}", file=sys.stderr)
+    print("")
+    raise SystemExit
+except Exception as exc:
+    print(f"ERROR: Could not resolve Civitai URL {url}: {exc}", file=sys.stderr)
+    print("")
+    raise SystemExit
 
 versions = model.get("modelVersions") or []
 for version in versions:
@@ -114,7 +128,12 @@ while IFS=$'\t' read -r filename url notes || [[ -n "${filename:-}" ]]; do
 
   echo "Downloading LoRA: $filename"
   tmp="${dest}.part"
-  curl -L --fail --retry 8 --retry-delay 5 "${headers[@]}" "$resolved_url" -o "$tmp"
+  if ! curl -L --fail --retry 8 --retry-delay 5 "${headers[@]}" "$resolved_url" -o "$tmp"; then
+    echo "Failed to download line $line_no: $filename"
+    echo "URL: $resolved_url"
+    rm -f "$tmp"
+    continue
+  fi
   mv "$tmp" "$dest"
   echo "Saved: $dest"
 done < "$MANIFEST"
