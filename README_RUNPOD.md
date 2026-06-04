@@ -64,6 +64,40 @@ Put LoRAs here:
 
 Then press `Refresh model library` in the controller. Each visible slot has its own weight slider from `0.0` to `1.2`; the default `0.75` is a conservative starting point.
 
+Recommended starting weights:
+
+```text
+Realism / amateur photo / skin texture: 0.40-0.60
+Body type / age / anatomy:             0.40-0.60
+Pose / interaction / composition:      0.60-0.90
+Strong style LoRA:                     0.30-0.70
+```
+
+For repeatable downloads, copy the example manifest and add direct LoRA download URLs:
+
+```bash
+cd /workspace/runpod-flux-pipeline
+nano lora_manifest.tsv
+chmod +x download_loras.sh
+./download_loras.sh
+```
+
+The repository also contains `lora_manifest.tsv` generated from the current LoRA matrix spreadsheet. The downloader can resolve Civitai model page URLs through the Civitai API and can turn simple Hugging Face repo URLs into `/resolve/main/<filename>` download URLs.
+
+For Civitai links that require login, create a Civitai API token and run:
+
+```bash
+export CIVITAI_TOKEN=your_token_here
+./download_loras.sh
+```
+
+For gated Hugging Face links:
+
+```bash
+export HF_TOKEN=hf_your_token_here
+./download_loras.sh
+```
+
 ## ComfyUI API Workflow
 
 The controller injects:

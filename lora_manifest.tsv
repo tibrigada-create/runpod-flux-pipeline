@@ -1,0 +1,14 @@
+# filename	url	notes
+flux_dev_srpo_leather_skin_v1.safetensors	https://huggingface.co/Alissonerdx/flux.1-dev-SRPO-LoRas	Realismus & textura; suggested weight 0.4-0.8
+nsfw_master_flux_z_image_v2.safetensors	https://civitai.com/models/667086/nsfw-master-flux	NSFW & anatomie; suggested weight 0.6-0.85
+ultrarealistic_v2_flux_dev.safetensors	https://civitai.com/models/633512/ultrarealistic-lora-v2-flux	Fotorealismus; suggested weight 0.5-0.7
+better_film_grain_skin_v1.safetensors	https://civitai.com/models/641209/better-film-grain-flux	Detaily kuze; suggested weight 0.3-0.5
+# pulid_flux_v1_identity_patch.safetensors	https://github.com/thekingofcoders/PuLID-Flux	Konzistence ID; PuLID is a custom-node workflow component, not a direct LoRA download
+flux_guidance_control_mesh.safetensors	https://huggingface.co/comfyui-wiki/flux-guidance-control	Kontrola promptovani; suggested weight 0.5
+cinematic_moody_lighting_v1.safetensors	https://civitai.com/models/652134/cinematic-moody-lighting-flux	Svetlo & atmosfera; suggested weight 0.6
+natural_body_proportions_slider.safetensors	https://civitai.com/models/629011/natural-body-proportions-flux	Proporce tela; suggested weight -0.5 to +0.8
+flux_coupled_poses_interaction.safetensors	https://civitai.com/models/643120/interaction-and-coupled-poses-flux	Interaktivita poz; suggested weight 0.5-0.75
+nsfw_fluids_hyperreal_details_v2.safetensors	https://civitai.com/models/658412/nsfw-fluids-and-hyper-real-details-flux	Explicitni detaily; suggested weight 0.6-0.8
+body_shape_bbw_curvy_slider.safetensors	https://civitai.com/models/632104/curvy-body-shape-slider-flux	Body type curves; suggested weight -1.0 to +1.5
+athletic_muscular_female_flux.safetensors	https://civitai.com/models/635890/athletic-muscular-body-flux	Body type athletic; suggested weight 0.4-0.85
+mature_milf_age_progression_slider.safetensors	https://civitai.com/models/640105/mature-age-progression-slider-flux	Age progression; suggested weight 0.5-1.2
