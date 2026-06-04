@@ -1,0 +1,6 @@
+# filename	url	notes
+# Put one LoRA per line. Use direct .safetensors URLs where possible.
+# Civitai download URLs often look like:
+# realism_flux_example.safetensors	https://civitai.com/api/download/models/MODEL_VERSION_ID	Realism/photo texture LoRA, start around 0.45-0.6
+# Hugging Face URLs often look like:
+# my_flux_lora.safetensors	https://huggingface.co/USER/REPO/resolve/main/my_flux_lora.safetensors?download=true	HF-hosted Flux LoRA
