@@ -1,0 +1,15 @@
+id,category,name,expected_filename,recommended_weight,source_url,source_type,status,notes
+1,Realism and Texture,flux.1-dev-SRPO-LoRas,flux_dev_srpo_leather_skin_v1.safetensors,0.4-0.8,https://huggingface.co/Alissonerdx/flux.1-dev-SRPO-LoRas,huggingface,,"Expected filename may differ. Known working file observed earlier: srpo_32_base_oficial_model_fp16.safetensors."
+2,Adult Anatomy,NSFW MASTER FLUX Z-Image V2,nsfw_master_flux_z_image_v2.safetensors,0.6-0.85,https://civitai.com/models/667086/nsfw-master-flux,civitai,,"May require Civitai token and license/account access."
+3,Photorealism,UltraRealistic LoRa v2 - Flux,ultrarealistic_v2_flux_dev.safetensors,0.5-0.7,https://civitai.com/models/633512/ultrarealistic-lora-v2-flux,civitai,,"Verify exact filename from Civitai metadata."
+4,Skin Detail,Better Film Grain Skin Micro-texture,better_film_grain_skin_v1.safetensors,0.3-0.5,https://civitai.com/models/641209/better-film-grain-flux,civitai,,"Verify exact filename from Civitai metadata."
+5,Identity Consistency,PuLID Flux No-Train ID Patch,pulid_flux_v1_identity_patch.safetensors,1.0,https://github.com/thekingofcoders/PuLID-Flux,github,,"This may be a custom node/model workflow, not a normal LoRA. Manual review likely needed."
+6,Prompt Control,FluxGuidance Control LoRA,flux_guidance_control_mesh.safetensors,0.5,https://huggingface.co/comfyui-wiki/flux-guidance-control,huggingface,,"May be gated or unavailable. Flux guidance is already controlled in workflow."
+7,Lighting and Atmosphere,Cinematic Moody Lighting Flux,cinematic_moody_lighting_v1.safetensors,0.6,https://civitai.com/models/652134/cinematic-moody-lighting-flux,civitai,,"Verify exact filename from Civitai metadata."
+8,Body Proportion,Natural Breast and Body Adjuster,natural_body_proportions_slider.safetensors,-0.5 to +0.8,https://civitai.com/models/629011/natural-body-proportions-flux,civitai,,"Verify exact filename from Civitai metadata."
+9,Pose Interaction,Interaction and Coupled Poses,flux_coupled_poses_interaction.safetensors,0.5-0.75,https://civitai.com/models/643120/interaction-and-coupled-poses-flux,civitai,,"Verify exact filename from Civitai metadata."
+10,Detail,NSFW Fluids and Hyper-Real Details,nsfw_fluids_hyperreal_details_v2.safetensors,0.6-0.8,https://civitai.com/models/658412/nsfw-fluids-and-hyper-real-details-flux,civitai,,"May require Civitai token and license/account access."
+11,Body Type Curvy,Curvy Body Shape Slider,body_shape_bbw_curvy_slider.safetensors,-1.0 to +1.5,https://civitai.com/models/632104/curvy-body-shape-slider-flux,civitai,,"Verify exact filename from Civitai metadata."
+12,Body Type Muscular,Athletic and Muscular Body Slider,athletic_muscular_female_flux.safetensors,0.4-0.85,https://civitai.com/models/635890/athletic-muscular-body-flux,civitai,,"Verify exact filename from Civitai metadata."
+13,Age,Mature Age Progression Slider,mature_milf_age_progression_slider.safetensors,0.5-1.2,https://civitai.com/models/640105/mature-age-progression-slider-flux,civitai,,"Verify exact filename from Civitai metadata."
+
