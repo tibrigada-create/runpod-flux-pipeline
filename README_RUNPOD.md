@@ -8,6 +8,7 @@ This folder contains a RunPod-oriented ComfyUI + Flux GGUF controller.
 - `app.py` is the Gradio micro-app that talks to ComfyUI through `/prompt`, WebSocket progress, `/history`, and `/view`.
 - `comfyui_flux_unchained_api_workflow.json` is the API-format ComfyUI workflow template.
 - `requirements.txt` contains only the controller dependencies.
+- `RUNPOD_LESSONS_LEARNED.md` records setup/debugging lessons so solved problems do not need to be rediscovered.
 
 ## Quick Start On RunPod
 
