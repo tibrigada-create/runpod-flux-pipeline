@@ -137,7 +137,6 @@ def download_hf(row: dict, cfg: Config, report: list[str]) -> Optional[Path]:
             repo_type="model",
             token=token,
             local_dir=str(cfg.download_staging),
-            local_dir_use_symlinks=False,
         )
     except Exception as exc:
         report.append(f"- FAIL HF `{row['name']}`: {exc}")

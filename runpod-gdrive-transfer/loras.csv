@@ -1,5 +1,5 @@
 id,category,name,expected_filename,recommended_weight,source_url,source_type,status,notes
-1,Realism and Texture,flux.1-dev-SRPO-LoRas,flux_dev_srpo_leather_skin_v1.safetensors,0.4-0.8,https://huggingface.co/Alissonerdx/flux.1-dev-SRPO-LoRas,huggingface,,"Expected filename may differ. Known working file observed earlier: srpo_32_base_oficial_model_fp16.safetensors."
+1,Realism and Texture,flux.1-dev-SRPO-LoRas,srpo_32_base_oficial_model_fp16.safetensors,0.35-0.55,https://huggingface.co/Alissonerdx/flux.1-dev-SRPO-LoRas,huggingface,verified,"Real file found in repo. Good first realism/detail LoRA to test at low weight."
 2,Adult Anatomy,NSFW MASTER FLUX Z-Image V2,nsfw_master_flux_z_image_v2.safetensors,0.6-0.85,https://civitai.com/models/667086/nsfw-master-flux,civitai,,"May require Civitai token and license/account access."
 3,Photorealism,UltraRealistic LoRa v2 - Flux,ultrarealistic_v2_flux_dev.safetensors,0.5-0.7,https://civitai.com/models/633512/ultrarealistic-lora-v2-flux,civitai,,"Verify exact filename from Civitai metadata."
 4,Skin Detail,Better Film Grain Skin Micro-texture,better_film_grain_skin_v1.safetensors,0.3-0.5,https://civitai.com/models/641209/better-film-grain-flux,civitai,,"Verify exact filename from Civitai metadata."
@@ -12,4 +12,3 @@ id,category,name,expected_filename,recommended_weight,source_url,source_type,sta
 11,Body Type Curvy,Curvy Body Shape Slider,body_shape_bbw_curvy_slider.safetensors,-1.0 to +1.5,https://civitai.com/models/632104/curvy-body-shape-slider-flux,civitai,,"Verify exact filename from Civitai metadata."
 12,Body Type Muscular,Athletic and Muscular Body Slider,athletic_muscular_female_flux.safetensors,0.4-0.85,https://civitai.com/models/635890/athletic-muscular-body-flux,civitai,,"Verify exact filename from Civitai metadata."
 13,Age,Mature Age Progression Slider,mature_milf_age_progression_slider.safetensors,0.5-1.2,https://civitai.com/models/640105/mature-age-progression-slider-flux,civitai,,"Verify exact filename from Civitai metadata."
-

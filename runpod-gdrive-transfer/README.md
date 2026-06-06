@@ -220,6 +220,55 @@ Important: URLs in the LoRA table may be inaccurate or changed. The script verif
 lora_download_report.md
 ```
 
+## C2. Download LoRAs From Local Windows Before Starting RunPod
+
+This saves RunPod GPU time. It uses the same `loras.csv` and Python downloader, but runs on your PC.
+
+From PowerShell:
+
+```powershell
+cd "C:\Codex projekty\Img analyzer to prompt\runpod-gdrive-transfer"
+Copy-Item .\config.windows.example.ps1 .\config.windows.ps1
+.\install_dependencies_windows.ps1
+```
+
+Configure Google Drive locally:
+
+```powershell
+rclone config
+```
+
+See:
+
+```text
+setup_rclone_windows.md
+```
+
+Set tokens only in the current PowerShell session:
+
+```powershell
+$env:HF_TOKEN = "hf_your_token_here"
+$env:CIVITAI_TOKEN = "your_civitai_token_here"
+```
+
+Run the download/upload:
+
+```powershell
+.\download_loras_to_gdrive_windows.ps1
+```
+
+The local files are staged in:
+
+```text
+C:\RunPod_Backup_Work
+```
+
+Google Drive output:
+
+```text
+gdrive:RunPod_Backup/loras/
+```
+
 ## D. Restore LoRAs From Google Drive
 
 After restoring the project or installing ComfyUI on a new Pod:
@@ -355,4 +404,3 @@ Check manually:
 ```bash
 ls -lh /workspace/_download_staging
 ```
-
